@@ -109,6 +109,10 @@ app.get("/tables", async (req, res) => {
     res.send(renderData)
 })
 
+app.use(async (req, res) => {
+    res.status(404).sendFile("error.html", { root: "." })
+})
+
 app.listen(3000, () => {
     console.log("port 3000");
 })
